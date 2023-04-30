@@ -1,0 +1,37 @@
+How to setup laravel website
+
+
+1) Clone the source code..
+
+2) You need PHP, Apache, MySQL, phpmyadmin, composer, node, laravel  etc..
+
+3) place the code in htdocs file 
+
+4) first setup LAMP stack
+
+4) install composer and laravel ( THIS LINK ARE SO IMPORTANT 
+	 follow this below link to setup :
+
+	 https://www.howtoforge.com/install-laravel-framework-on-debian-11/ 
+	 https://tecadmin.net/install-laravel-on-debian-10-buster/
+	 https://www.linuxtuto.com/how-to-install-laravel-9-on-debian-11/
+
+ 	 )
+
+5) install node (flollow this link to download : https://github.com/nodesource/distributions )
+
+6) make sure you "MUST" set proper permisoon by following link that shown in "step 4"
+
+7) follow below link to access PHPMYADMIN
+
+ssh -N -L 8888:127.0.0.1:80 -i <YOUR_INSTANCE_KEY.pem> bitnami@<YOUR_OF_INSTANCE_IP>
+
+keep above git bash open and then http://127.0.0.1:8888/phpmyadmin
+
+
+8) now go into folder where you downloaded your source code mostly in /opt/bitnami/apache/htdocs/
+
+run "composer install"
+run "npm install"
+run "php artisan key:generate"
+run "php artisan serve"

@@ -1,0 +1,70 @@
+How to update python version to the latest verion in ubuntu
+
+1. NOTE you will find python interpreter in this directory => /usr/bin/ 
+
+just paste below command. 
+
+
+sudo apt update
+
+sudo apt install software-properties-common
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+sudo apt update
+
+sudo apt install python3.10 #  whatever latest version
+
+python3 --version
+
+
+NOTE if it is still showing old verion then you just need to map python to new interpreter
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+
+NOW TYPE python3 --version and you will get the newer verions
+
+
+
+
+HOW TO INSTALL PIP IN Ubuntu 
+
+1. type below command and download the script 
+
+wget https://bootstrap.pypa.io/get-pip.py
+
+2. now you will see the one file in your directory with name " get-pip.py ". run this file and you will get the PIP installed
+
+NOTE :  if you get about PATH error then follow below command 
+
+solution 1 : 
+
+	sudo mv /home/vagrant/.local/bin/* /usr/bin/
+
+	MEANS TAKE PIP FILE FORM this directory => /home/vagrant/.local/bin to this directory =>  /usr/bin/
+
+solution 2 :
+
+	export PATH=$PATH:/home/vagrant/.local/bin
+
+	source ~/.bashrc
+
+MEANS ADD THE PATH of pip into bashrc file 
+
+
+==============================================================================================================================================================================
+
+Question: I have python version Python 3.10.6 in my ubuntu linux but i want python 2.7 in my machine as defautl how can i do that?
+
+Ans :
+
+
+sudo apt install python2.7
+
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+
+
+python --version
+
+
+

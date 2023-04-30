@@ -1,0 +1,47 @@
+VPC Range = 172.20.0.0/16
+
+
+Two region
+
+us-east-1a
+us-east-1b
+
+
+4 subnet
+
+2 public
+2 private
+
+
+Subnet range
+
+1st public subnet:  172.20.1.0/24 [us-east-1a] 
+2nd public subnet:  172.20.2.0/24 [us-east-1b]
+ 
+1st private subnet: 172.20.3.0/24 [us-east-1a]
+2nd private sbunet: 172.20.4.0/24 [us-east-1b]
+
+
+
+Component 
+1 Internet gateway
+
+2 NAT gateway
+
+1 ElasticIP
+
+2 Route table (one for public subnet and other for private gateway)
+
+1 Bastion host in the public subnet
+
+
+NACL => (Network access control list just like firewall or security group)
+
+1 more VPC ( to see the VPC peering )
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+$CI_COMMIT_REF_NAME => refers working or building or running pipeline brach
+
+$CI_DEFAULT_BRANCH  => refers Default brach of the repository
+
+$CI_PIPELINE_ID     => Genretes id uniqueue eveytime across all the project (RANDOM NUMBER FOR EACH PIPELIEN )
+
+$CI_PIPELINE_IID    => generaet id which is unique in internal project (USE TO GENERATE VERSION )
+
+$CI_REGISTRY_IMAGE  => this will automatically will give the name to the registery and give "latest" tag if you don't specify any other.
+
+$CI_REGISTRY        => this variable contain address of the GitLab registry.
+
+$CI_REGISTRY_USER   => GitLab will give us temp username that will be containe by this variable
+
+$CI_REGISTRY_PASSWORD => GitLab will give temp password to access and GitLab resitry 
+
+
+docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY => to login to GitLab registry 
+
+docker push --all-tags $CI_REGISTRY_IMAGE => to push into Gitlab registry 
+
+
+one more Pro method
+
+echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin 
+
+

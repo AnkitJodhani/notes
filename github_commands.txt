@@ -1,0 +1,117 @@
+This file made by Ankit Jodhani
+# learning git hub
+
+
+//WORKING AREA
+git init             # to initilized whole directory, after hiting this command everyfile come under WORKING STATE
+
+
+// STAGING STATE
+git add .            # to add every file of CWD in STAGING STATE
+git add NAME_OF_FILE # to add spcified file in staging area
+git add -A           # to add all the file in staging area
+git add -all         # to add all the file in staging are 
+
+
+//COMMIT STEATE 
+git commit -m "MEASSAGE" # to add your changes into final state
+git commit -m "MEASSAGE" # it will take snapshot of the filesytem(initilized directory )
+
+
+//STATUS 
+git status # it will show you all current state of the file system. like what are the files in WORKING STATE and STAGING STATE
+
+// LOG
+git log            # it will show you all the logged in details  
+git log --oneline  # it will show you all the logged details in short manner
+
+// DIFFERANCE 
+git diff           # it will show you what is the differance between old version of file and new version of the file
+git diff           # '+' represent some line is Added
+git diff           # '-' represent some line is Removed
+
+//RENAME FILE
+git mv OLD.name NEW.name  # this is just one operation for git
+
+NOTE :- 
+CASE 1 :- if you rename one file manully then git consider that one file is deleted and one file is newly created. git consider as two operation 1)deletion 2)insertion 
+
+
+
+// NEW CONTENT WITH OLD COMMIT (means you wannt to do something but you don't want to make multiple commit. inshort you want to add new changes into previous commit instead of making new commit)
+//NOTE :- run below command after making new changes
+
+git commit --amend                            # it will open defalult editor and you can add new commit message in it.
+git commit --amend -am "NEW COMMIT MEASSAGE"  # JUST DO IT
+git commit --amend --no-edit                  # if you don't want to add new meesage then just hit this command. new changes will be merge with old commit
+
+
+// RESET
+git reset COMMIT_HASH_ID                      # if you want to go to the previous state then specify that COMMIT_HASH_STATE
+                         		      # it will not change anything into file. but all files comeback into WORKING STATE 
+                         		      # you have to commit again
+
+// RESET HARD
+git reset --hard COMMIT_HASH_ID 	      # you can go the the specify previouse STATE
+					      # it also chage the content of the file so it is just like UNDO [ctrl + z]
+					      # bring all the file to the WORKING STATE with OLD CONTENT
+					      
+// CHAGE HISTORY (you wannt chage previous snapshot of the system )
+NOTE :- if anything went wrong you can use command "git rebase --abort"
+
+git rebase -i --root                          # if you want to add someting or combine NEW COMMIT and OLD COMMIT
+                                              # as soon as you hit this command your defautl editor will open and you have to cut new COMMIT and paste below of the COMMIT with you want to combine
+                                              # you can use fix command to combine
+                               
+// BRANCH 
+NOTE :- suppose you are working in team then ther is master branch but all people if commit on master branch then that will create lot of confusion so we are gonna make branch 
+for all person. suppose 5 people working in team then we will create 5 different branch and after implemeting feature we will merge with MASTER branch 
+
+git branch                                   # list of all the branch 
+git switch -c  NAME_OF_THE_NEW_BRANCH        # to create new branch
+git switch  EXISTING_BRANCH_NAME             # to switch between existing branch
+git checkout EXISTING_BRANCH_NAME            # to switch between existing branch 
+
+// MEARGE BRANCH 
+// NOTE :- when you merge two branch you may get confilict so be care full and handle properly 
+
+git merge NAME_OF_BRANCH                     # it will merge specified branch with CURRENT WORKING BRANCH 
+
+
+// DELETE BRANCH 
+git branch --delete NAME_OF_BRANCH           # used to delete branch 
+git branch -d NAME_OF_BRANCH                 # used to delete branch
+git branch -D NAME_OF_BRANCH                 # used to delete branch
+
+
+// STASHING( IMPORTENT )
+CASE :- suppose you are working on some feature and your boss tell you to implment some other feature but you don't want to remove this current work then you can use stash 
+stash will take all your work (COMMITED + UNCOMMITED ) and store into temporary area and give number as 0. and remove all uncommited work so that you can implement whatever your 
+boss wants you to implement.
+now you want your own feature back then you have to hit below commands.
+
+step 1) remove your boss feature. either using "git reset" or "git restore"
+step 2) git stash apply 0                   # use to bring 0th stash into working directory
+
+git stash pop                               # it will pop top theam form stash area and add to working area. if you want to get rid of then use "git restore ."
+
+// CLEAN 
+git clean -n                               # it will JUST SHOW you how many files can be remove if you hit below command. NOTE that this wil NOT delete it is just "dry run"
+git clean -d                               # dry run for the directory 
+git clean -f                               # it will remove all the files
+git clean -dn                              # dry run for FILES AND FOLDERS both
+git clean -df                              # remove all UNTRACK file and folders
+
+
+
+
+
+
+
+
+
+
+
+
+
+
